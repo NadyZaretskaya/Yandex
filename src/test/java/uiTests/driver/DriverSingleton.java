@@ -17,7 +17,6 @@ public class DriverSingleton {
     static Logger log = LogManager.getRootLogger();
     private static EventFiringWebDriver driver;
 
-
     private DriverSingleton() {
     }
 
@@ -38,7 +37,7 @@ public class DriverSingleton {
     public static void setUpDriver() {
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+      //  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     public static void closeDriver() {

@@ -7,9 +7,7 @@ import org.openqa.selenium.*;
 import uiTests.driver.DriverSingleton;
 import uiTests.pages.homePage.HomePage;
 import utils.Waiters;
-
 import java.util.ArrayList;
-
 
 public class Page {
     private final Logger log = LogManager.getRootLogger();
@@ -38,7 +36,7 @@ public class Page {
     }
 
     protected void clickButton(By by) {
-        waitForElementVisible(by);
+        waitForElementClickable(by);
         findElement(by).click();
     }
 
@@ -51,41 +49,12 @@ public class Page {
         return findElement(by).getText();
     }
 
-//    public void pressEnter() {
-//        webDriver.sendKeys(Keys.ENTER);
-//    }
-
     public HomePage getTab(int tab) {
         if (tabs == null) {
             tabs = new ArrayList<>(webDriver.getWindowHandles());
         }
         webDriver.switchTo().window(tabs.get(tab));
-        return new HomePage();
+       return new HomePage();
     }
-
-
-//    String Tab1 = webDriver.getWindowHandle();
-//    ArrayList<String> availableWindows = new ArrayList<String>(webDriver.getWindowHandles());
-//    if (!availableWindows.isEmpty()) {
-//        webDriver.switchTo().window(availableWindows.get(1));
-//    }
-////
-//    protected boolean elementIsDisplayed(By by) {
-//        try {
-//            Waiters.waitForElementVisible(webDriver, by);
-//            return findElement(by).isDisplayed();
-//        } catch (NoSuchElementException e) {
-//            log.error(e.getMessage());
-//            return false;
-//        }
-//    }
-//        protected void waitForElementVisibility(By locator) {
-//        new WebDriverWait(webDriver, 20).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
-//    }
-//
-//    protected void waitForElementToBeClickable(By locator) {
-//        new WebDriverWait(webDriver, 20).until(ExpectedConditions.elementToBeClickable(locator));
-//    }
-
 
 }

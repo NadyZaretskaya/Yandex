@@ -33,25 +33,23 @@ public class LoginTest extends BaseTest{
            2. В поле "Пароль" ввести валидный пароль и нажать кнопку "Войти".
            ОР: Пользователь перенаправлен на главную страницу и авторизован под своим именем.
          */
-//    @Test(description = "Log in to Yandex music")
-//    @Issue("1")
-//    @TmsLink("Post-1")
-//    @Epic("Yandex music")
-//    @Story("Log in with valid credentials")
-//    @Severity(SeverityLevel.CRITICAL)
-//    public void logInWithValidValues() {
-//        logInPage.enterValueInLogInField(VALID_USER.getLogin());
-//        logInPage.clickLogInButton();
-//        logInPage.enterValueInPasswordField(VALID_USER.getPassaword());
-//        logInPage.clickPasswordButton();
-//        homePage = logInPage.getTab(0);
-////       homePage.getUserName();
-//
-//       Assert.assertEquals(VALID_USER.getUserName(), homePage.getUserName());
-//
-//    }
+    @Test(description = "Log in to Yandex music")
+    @Issue("1")
+    @TmsLink("Post-1")
+    @Epic("Yandex music")
+    @Story("Log in with valid credentials")
+    @Severity(SeverityLevel.CRITICAL)
+    public void logInWithValidValues() {
+        logInPage.enterValueInLogInField(VALID_USER.getLogin());
+        logInPage.clickLogInButton();
+        logInPage.enterValueInPasswordField(VALID_USER.getPassword());
+        logInPage.clickPasswordButton();
+        homePage = logInPage.getTab(0);
+        Assert.assertEquals(homePage.getUserName(), VALID_USER.getUserName());
 
-    /* В поле "Логин" ввести валидный логин и нажать кнопку "Войти".
+    }
+
+    /*  Поле "Логин" оставить пустым и нажать кнопку "Войти".
          ОР: Пользователь остался на странице авторизации и появилось сообщение о некорректно введенных данных.
      */
     @Test(description = "Log in to Yandex music")
@@ -63,7 +61,6 @@ public class LoginTest extends BaseTest{
     public void logInWithEmptyLogin() {
         logInPage.enterValueInLogInField("");
         logInPage.clickLogInButton();
-
         Assert.assertTrue(logInPage.isLoginAlertMessageDisplayed());
     }
 

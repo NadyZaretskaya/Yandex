@@ -27,7 +27,7 @@ public class User {
         this.login = login;
     }
 
-    public String getPassaword() {
+    public String getPassword() {
         return passaword;
     }
 

@@ -31,21 +31,11 @@ public class LogInPage extends Page {
         return new HomePage();
     }
 
-//    @Step("Click \"Войти\" button on Login page")
-//    public HomePage clickPasswordButton() {
-//        clickButton(PASS_BUTTON);
-//        getTab(1);
-//        return new HomePage();
-//    }
-
     @Step("Click \"Войти\" button on Login page")
     public HomePage clickPasswordButton() {
         clickButton(PASS_BUTTON);
         return new HomePage();
     }
-
-
-
 
     @Step("Check if alert 'No password entered' message is displayed")
     public Boolean isPasswordAlertMessageDisplayed() {
